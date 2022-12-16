@@ -27,7 +27,7 @@ function checksExistsUserAccount(request, response, next) {
 function checksCreateTodosUserAvailability(request, response, next) {
   const user  = request.user;
   
-  return (!user.pro && user.todos.length) < 10 || user.pro ? next() : response.status(403);
+  return ((!user.pro && user.todos.length) < 10 || user.pro) ? next() : response.status(403);
  
 }
 
